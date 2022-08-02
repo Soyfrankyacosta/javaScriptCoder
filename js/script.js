@@ -1,49 +1,51 @@
-function random (min, max) {
-    return Math.floor(Math.random() * (max - min + 1) + min) 
-}
-
-let jugador = 0
-let jugadorII = 0
-let ganadas = 0
-let perdidas = 0
-
-while (ganadas < 3 && perdidas < 3) {
-    jugadorII = random(1,3)
-    jugador = prompt('Elige: 1 para piedra, 2 para papel, 3 para tijera')
-    if (jugador == 1) {
-        alert('Elegiste piedra')
-    } else if (jugador == 2) {
-        alert('Elegiste papel')
-    } else if (jugador == 3) {
-        alert('Elegiste tijera')
-    } else {
-        alert('No elejiste nada t(-_-t)')
-    }
-    if (jugadorII == 1) {
-        alert('Jugador II eligió piedra')
-    } else if (jugadorII == 2) {
-        alert('Jugador II eligió papel')
-    } else if (jugadorII == 3) {
-        alert('Jugador II eligió tijera')
+class Tarea {
+    constructor(nombre, area, dia, estado, id) {
+        this.tarea = nombre;
+        this.area = area;
+        this.dia = dia;
+        this.estado = estado;
+        this.id = id;
     }
 
-    if (jugadorII == jugador) {
-        alert('Empate :/')
-    } else if (jugador == 1 && jugadorII == 3) {
-        alert('Ganaste :D')
-        ganadas = ganadas +1
-    } else if (jugador == 2 && jugadorII == 1) {
-        alert('Ganaste :D')
-        ganadas = ganadas +1
-    } else if (jugador == 3 && jugadorII == 2) {
-        alert('Ganaste :D')
-        ganadas = ganadas +1
-    } else {
-        alert('Perdiste :C')
-        perdidas = perdidas +1
+    asignarId(array) {
+        this.id = array.length;
+    }
+
+    estado(estado) {
+        this.estado = estado;
     }
 }
 
-alert('Ganadas ' + ganadas + ' Perdidas ' + perdidas)
+const tareas =[
+    new Tarea('Pasear al perro', 'Casa', 'Lunes', 'Realizada', '1'),
+    new Tarea('Limpiar habitación', 'Casa', 'Martes', 'No realizada', '2'),
+    new Tarea('Terminar proyecto OtterDev', 'Trabajo', 'Jueves', 'No realizada', '3'),
+    new Tarea('Ordenar Habitación', 'Casa', 'Viernes', 'No realizada', '4'),
+    new Tarea('Salida con amigos', 'General', 'Sábado', 'Pendiente', '5'),
+    new Tarea('Junta Cliente', 'Trabajo', 'Martes', 'Pendiente', '6')
+]
+
+console.log(tareas);
 
 
+//--------------Momento de ingresar nuevas tareas y sumarlas al array--------------//
+
+let continuar = true;
+
+while (continuar) {
+    let ingreso = prompt('Ingresar nueva tarea: nombre, area, día, estado, todo esto separado por un (-). Ingresa X para finalizar.');
+
+    if (ingreso.toUpperCase()=='X') {
+        continuar = false;
+        break;
+    }
+
+    let datos = ingreso.split('-');
+    const nuevaTarea = new Tarea(datos[0], datos[1], datos[2], datos[3]);
+
+    tareas.push(nuevaTarea);
+
+    nuevaTarea.asignarId(tareas);
+
+    console.log(tareas)
+}
