@@ -1,4 +1,13 @@
-class Tarea {
+let usuario = 'francisco'
+
+if (usuario == 'francisco') {
+    alert('Bienvenido ' + usuario + ' a tu lista de tareas.');
+} else {
+    alert('Bienvenido persona extraña.');
+}
+
+
+class Tarea{
     constructor(nombre, area, dia, estado, id) {
         this.tarea = nombre;
         this.area = area;
@@ -7,11 +16,11 @@ class Tarea {
         this.id = id;
     }
 
-    asignarId(array) {
+    asignarId(array){
         this.id = array.length;
     }
 
-    estado(estado) {
+    estado(estado){
         this.estado = estado;
     }
 }
@@ -35,17 +44,22 @@ let continuar = true;
 while (continuar) {
     let ingreso = prompt('Ingresar nueva tarea: nombre, area, día, estado, todo esto separado por un (-). Ingresa X para finalizar.');
 
-    if (ingreso.toUpperCase()=='X') {
+    if (ingreso.toUpperCase()=='X'){
         continuar = false;
         break;
     }
 
     let datos = ingreso.split('-');
-    const nuevaTarea = new Tarea(datos[0], datos[1], datos[2], datos[3]);
+    const tarea = new Tarea(datos[0], datos[1], datos[2], datos[3]);
 
-    tareas.push(nuevaTarea);
+    tareas.push(tarea);
 
-    nuevaTarea.asignarId(tareas);
+    tarea.asignarId(tareas);
 
     console.log(tareas)
 }
+
+
+tareas.forEach(Element => {
+    console.log(Element)
+});

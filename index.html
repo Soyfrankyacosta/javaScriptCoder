@@ -4,13 +4,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
     <title>Lista de tareas</title>
 </head>
 <body>
 
+    <div class="contenedor">
+    <h1>Lista de Tareas</h1>
 
+    <form action="#" id="nuevaTareaInput">
+        <input type="text" class="inputTarea" placeholder="Agregar tarea aquí..." >
+        <input type="submit" class="inputBtn" value="+" id="addBtn">
+    </form>
 
-
+    <div id="lista" class="contenedorLista">
+        <div class="contenedorTarea" id="1">
+            <label>
+                <input type="checkbox">
+                Tarea nro1
+            </label>
+            <img src="https://icongr.am/feather/trash.svg?size=98&color=currentColor" alt="icono de eliminar" class="eliminarBtn">
+        </div>
+    </div>
+</div>
 
 
     <script src="js/script.js"></script>
