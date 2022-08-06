@@ -1,65 +1,26 @@
-let usuario = 'francisco'
+const fecha = document.querySelector('#fecha')
+const lista = document.querySelector('#lista')
 
-if (usuario == 'francisco') {
-    alert('Bienvenido ' + usuario + ' a tu lista de tareas.');
-} else {
-    alert('Bienvenido persona extraña.');
+//Incorporando fecha actual
+const FECHA = new Date()
+fecha.innerHTML = FECHA.toLocaleDateString('es', {weekday:'long', month:'short',day:'numeric'})
+
+//funcion para agregar una tarea nueva
+
+function agregarTareaNueva (tarea){
+    const elemento = `  <li id="elemento">
+                        <img class="circulo-lista" id="0" data="realizada" src="https://icongr.am/feather/circle.svg?size=40&color=5065b9" alt="circulo tarea terminada">
+                        <p class="texto-lista">${tarea}</p>
+                        <img class="eliminar-tarea" id="0" data="eliminada" src="https://icongr.am/feather/trash-2.svg?size=40&color=5065b9" alt="eliminar tarea">
+                        </li>
+                    `
+    lista.insertAdjacentHTML('beforeend', elemento)
 }
 
-
-class Tarea{
-    constructor(nombre, area, dia, estado, id) {
-        this.tarea = nombre;
-        this.area = area;
-        this.dia = dia;
-        this.estado = estado;
-        this.id = id;
+enviar.addEventListener('click',()=>{
+    const tarea = input.value
+    if(tarea) {
+        agregarTareaNueva(tarea)
     }
-
-    asignarId(array){
-        this.id = array.length;
-    }
-
-    estado(estado){
-        this.estado = estado;
-    }
-}
-
-const tareas =[
-    new Tarea('Pasear al perro', 'Casa', 'Lunes', 'Realizada', '1'),
-    new Tarea('Limpiar habitación', 'Casa', 'Martes', 'No realizada', '2'),
-    new Tarea('Terminar proyecto OtterDev', 'Trabajo', 'Jueves', 'No realizada', '3'),
-    new Tarea('Ordenar Habitación', 'Casa', 'Viernes', 'No realizada', '4'),
-    new Tarea('Salida con amigos', 'General', 'Sábado', 'Pendiente', '5'),
-    new Tarea('Junta Cliente', 'Trabajo', 'Martes', 'Pendiente', '6')
-]
-
-console.log(tareas);
-
-
-//--------------Momento de ingresar nuevas tareas y sumarlas al array--------------//
-
-let continuar = true;
-
-while (continuar) {
-    let ingreso = prompt('Ingresar nueva tarea: nombre, area, día, estado, todo esto separado por un (-). Ingresa X para finalizar.');
-
-    if (ingreso.toUpperCase()=='X'){
-        continuar = false;
-        break;
-    }
-
-    let datos = ingreso.split('-');
-    const tarea = new Tarea(datos[0], datos[1], datos[2], datos[3]);
-
-    tareas.push(tarea);
-
-    tarea.asignarId(tareas);
-
-    console.log(tareas)
-}
-
-
-tareas.forEach(Element => {
-    console.log(Element)
-});
+    input.value=''
+})

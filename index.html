@@ -8,27 +8,35 @@
     <title>Lista de tareas</title>
 </head>
 <body>
-
     <div class="contenedor">
-    <h1>Lista de Tareas</h1>
+        <div class="perfil">
+            <div id="fecha"></div>
+            <h1>Hola,Francisco Acosta</h1>
+            <span>Bienvenido a tu lista de tarea</span>
+        </div>
 
-    <form action="#" id="nuevaTareaInput">
-        <input type="text" class="inputTarea" placeholder="Agregar tarea aquí..." >
-        <input type="submit" class="inputBtn" value="+" id="addBtn">
-    </form>
+        <div class="agregar-tarea">
+            <input type="text" id="input" placeholder="agregar una tarea aquí"> 
+            <img id="enviar" src="https://icongr.am/feather/check-circle.svg?size=50&color=5065b9" alt="circulo ok">
+        </div>
 
-    <div id="lista" class="contenedorLista">
-        <div class="contenedorTarea" id="1">
-            <label>
-                <input type="checkbox">
-                Tarea nro1
-            </label>
-            <img src="https://icongr.am/feather/trash.svg?size=98&color=currentColor" alt="icono de eliminar" class="eliminarBtn">
+        <div class="apartado-tarea">
+            <h3>Aquí están tus tareas pendientes:</h3>
+            <ul id="lista">
+                <!--<li>
+                    <img class="circulo-lista" id="0" data="realizada" src="https://icongr.am/feather/circle.svg?size=40&color=5065b9" alt="circulo tarea terminada">
+
+                    <p class="texto-lista">text</p>
+
+                    <img class="eliminar-tarea" id="0" data="eliminada" src="https://icongr.am/feather/trash-2.svg?size=40&color=5065b9" alt="eliminar tarea">
+
+
+                </li> -->
+            </ul>
         </div>
     </div>
-</div>
 
 
-    <script src="js/script.js"></script>
+<script src="js/script.js"></script>
 </body>
 </html>
