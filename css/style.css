@@ -16,3 +16,8 @@ body{
     background-color: aquamarine;
     padding: 30px;
 }
+
+ul li{
+    display: flex;
+    align-items: center;
+}

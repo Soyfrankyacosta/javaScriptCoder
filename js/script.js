@@ -1,6 +1,10 @@
 const fecha = document.querySelector('#fecha')
 const lista = document.querySelector('#lista')
 
+let nombre = prompt('Ingrese su nombre y apellido:');
+document.getElementById('nombreUsuario').innerHTML = nombre;
+
+
 //Incorporando fecha actual
 const FECHA = new Date()
 fecha.innerHTML = FECHA.toLocaleDateString('es', {weekday:'long', month:'short',day:'numeric'})
@@ -9,8 +13,8 @@ fecha.innerHTML = FECHA.toLocaleDateString('es', {weekday:'long', month:'short',
 
 function agregarTareaNueva (tarea){
     const elemento = `  <li id="elemento">
-                        <img class="circulo-lista" id="0" data="realizada" src="https://icongr.am/feather/circle.svg?size=40&color=5065b9" alt="circulo tarea terminada">
                         <p class="texto-lista">${tarea}</p>
+                        <img class="circulo-lista" id="0" data="realizada" src="https://icongr.am/feather/circle.svg?size=40&color=5065b9" alt="circulo tarea terminada">
                         <img class="eliminar-tarea" id="0" data="eliminada" src="https://icongr.am/feather/trash-2.svg?size=40&color=5065b9" alt="eliminar tarea">
                         </li>
                     `
@@ -22,5 +26,17 @@ enviar.addEventListener('click',()=>{
     if(tarea) {
         agregarTareaNueva(tarea)
     }
-    input.value=''
+    input.value='' //una vez enviada la tarea el valor del input se restablece vacio
+})
+
+//Agregar tarea presionando la tecla enter
+
+document.addEventListener('keyup',function(event){
+    if(event.key=='Enter'){
+        const tarea = input.value
+        if(tarea){
+            agregarTareaNueva(tarea)
+        }
+        input.value='' 
+    }
 })
