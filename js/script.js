@@ -1,8 +1,8 @@
 const fecha = document.querySelector('#fecha')
 const lista = document.querySelector('#lista')
 const input = document.querySelector('#input')
-const tareasGuardadas = []
-let id = 0
+let tareasGuardadas 
+let id 
 
 let nombre = prompt('Ingrese su nombre y apellido:');
 document.getElementById('nombreUsuario').innerHTML = nombre;
@@ -38,6 +38,7 @@ enviar.addEventListener('click',()=>{
             eliminada:false
         })
     }
+    localStorage.setItem('LISTA', JSON.stringify(tareasGuardadas))
     input.value='' //una vez enviada la tarea el valor del input se restablece vacio
     id++
 })
@@ -57,18 +58,20 @@ document.addEventListener('keyup',function(event){
             eliminada:false
         })
         }
+        localStorage.setItem('LISTA', JSON.stringify(tareasGuardadas))
         input.value=''
         id++
     }
 })
 
-
+//Evento
 lista.addEventListener('click',function(event){
     const elemento = event.target
     const elemntData = elemento.attributes.data.value
     if(elemntData==='eliminada'){
         tareaEliminada(elemento)
     }
+    localStorage.setItem('LISTA', JSON.stringify(tareasGuardadas))
 })
 
 //funcion para eliminar una tarea
@@ -76,4 +79,24 @@ lista.addEventListener('click',function(event){
 function tareaEliminada(elemento){
     elemento.parentNode.parentNode.removeChild(elemento.parentNode)
     tareasGuardadas[elemento.id].eliminada = true
+}
+
+//localStorage 
+
+function listaGuardada(datos){
+    datos.forEach(function(i){
+        agregarTareaNueva(i.nombre,i.id,i.eliminada)
+    })
+}
+
+
+let elementosGuardados = localStorage.getItem('LISTA')
+if(elementosGuardados){
+    tareasGuardadas=JSON.parse(elementosGuardados)
+    id = tareasGuardadas.length
+    listaGuardada(tareasGuardadas)
+} else{
+    //restablece los datos del array
+    tareasGuardadas = []
+    id= 0
 }
