@@ -64,7 +64,7 @@ document.addEventListener('keyup',function(event){
     }
 })
 
-//Evento
+//Evento  eliminar tarea 
 lista.addEventListener('click',function(event){
     const elemento = event.target
     const elemntData = elemento.attributes.data.value
