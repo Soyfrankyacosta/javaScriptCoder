@@ -4,9 +4,19 @@ const input = document.querySelector('#input')
 let tareasGuardadas 
 let id 
 
-let nombre = prompt('Ingrese su nombre y apellido:');
-document.getElementById('nombreUsuario').innerHTML = nombre;
 
+
+//Sewwtalert para que el usuario ingrese nombre y apellido
+/*let nombre = Swal.fire(
+    {title: 'Bienvenido/a',
+    input: 'text',
+    inputLabel: 'Ingrese su nombre y apellido',
+    inputPlaceholder: 'nombre y apellido'},
+);
+document.getElementById('nombreUsuario').innerHTML = nombre;*/
+
+let nombre = prompt('Ingrese nombre y apellido:')
+document.getElementById('nombreUsuario').innerHTML = nombre;
 
 
 //Incorporando fecha actual
@@ -28,7 +38,11 @@ function agregarTareaNueva (tarea,id,eliminada){
 
 enviar.addEventListener('click',()=>{
     if (!input.value)
-    return alert('¡Por favor, asegurese de ingresar una tarea!')
+    return Swal.fire({
+        icon: 'info',
+        title: 'Por favor',
+        text: 'Asegurese de ingresar una tarea!',
+        })
     const tarea = input.value
     if(tarea) {
         agregarTareaNueva(tarea,id,false)
@@ -47,7 +61,11 @@ enviar.addEventListener('click',()=>{
 
 document.addEventListener('keyup',function(event){
     if (!input.value)
-    return alert('¡Por favor, asegurese de ingresar una tarea!')
+    return Swal.fire({
+        icon: 'info',
+        title: 'Por favor',
+        text: 'Asegurese de ingresar una tarea!',
+        })
     if(event.key=='Enter'){
         const tarea = input.value
         if(tarea){
@@ -77,6 +95,11 @@ lista.addEventListener('click',function(event){
 //funcion para eliminar una tarea
 
 function tareaEliminada(elemento){
+    Swal.fire({
+        icon: 'success',
+        title: 'Eliminada',
+        text: 'Tu tarea fue eliminada',
+        })
     elemento.parentNode.parentNode.removeChild(elemento.parentNode)
     tareasGuardadas[elemento.id].eliminada = true
 }
@@ -100,3 +123,5 @@ if(elementosGuardados){
     tareasGuardadas = []
     id= 0
 }
+
+
