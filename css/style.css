@@ -22,3 +22,30 @@ ul li{
     align-items: center;
 }
 
+/*TEMP Y TIEMPO*/
+
+#contenedorClima{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0,2rem;
+}
+
+#temperaturaCaja{
+    background-color: aqua;
+    border-radius: 20px;
+}
+
+#ubicacionCaja{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: aqua;
+    border-radius: 20px;
+}
+
+#contenedorClima{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
