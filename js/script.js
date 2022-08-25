@@ -21,7 +21,7 @@ window.addEventListener('load', ()=>{
             lat = posicion.coords.latitude
 
             //ubicación por ciudad tiempo actual
-            const url = `https://api.openweathermap.org/data/2.5/weather?q=Escobar&lang=es&units=metric&appid=6fb3a49675c7e92d3bc3d21cb048953a`
+            const url = `https://api.openweathermap.org/data/2.5/weather?q=BsAs&lang=es&units=metric&appid=6fb3a49675c7e92d3bc3d21cb048953a`
             
             fetch(url)
                 .then(response => { return response.json() })

@@ -11,41 +11,57 @@ body{
 }
 
 .contenedor{
-    width: 80vh;
-    margin: 0 auto;
+    height: 100%;
     background-color: aquamarine;
-    padding: 30px;
+    display: flex;
+    justify-content: center;
+    margin: 0px 100px;
 }
+
+.perfil{
+    border: 3px solid #000;
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    padding: 20px;
+    margin-right: 10px;
+    gap: 15px;
+    position: sticky;
+    top: 20px;
+}
+
+#contenedorClima{
+    border: 3px solid #000;
+    display: flex;
+    flex-direction: unset;
+    width: 300px;
+    padding: 20px;
+    margin-right: 10px;
+    gap: 15px;
+    position: sticky;
+    top: 20px;
+}
+
+.agregar-tarea{
+        display: flex;
+        align-items: center;
+}
+
+.apartado-tarea{
+    border: 3px solid #000;
+    width: 400px;
+}
+
 
 ul li{
     display: flex;
     align-items: center;
-}
-
-/*TEMP Y TIEMPO*/
-
-#contenedorClima{
-    display: flex;
     justify-content: space-between;
-    align-items: center;
-    font-size: 0,2rem;
-}
-
-#temperaturaCaja{
+    margin: 10px 0px;
     background-color: aqua;
-    border-radius: 20px;
 }
 
-#ubicacionCaja{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    background-color: aqua;
-    border-radius: 20px;
-}
-
-#contenedorClima{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+#enviar:hover,
+.eliminar-tarea:hover{
+    cursor: pointer;
 }
